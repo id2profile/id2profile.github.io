@@ -1,1 +1,1 @@
-https://id2profile.github.io/#<id>
+https://id2profile.github.io/#id

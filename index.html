@@ -1,0 +1,17 @@
+<html>
+  <head>
+    <script type="text/javascript">
+  		const getProfileUrlFor = async (id) => {
+        const data = await (await fetch("https://api.github.com/user/" + id + "?callback=?")).json();
+        const github_user_url = json["data"]["html_url"];
+        window.location.replace(github_user_url);
+  		}
+      document.addEventListener('DOMContentLoaded', () => {
+  			if (document.location.hash) {
+  				var id = document.location.hash.match(/^#(.*?)$/)[1];
+  				getProfileUrlFor(id);
+  			}
+      });
+    </script>
+  </head>
+</html>

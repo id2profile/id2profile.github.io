@@ -3,13 +3,12 @@
     <script type="text/javascript">
   		const getProfileUrlFor = async (id) => {
         const data = await (await fetch("https://api.github.com/user/" + id)).json();
-        const github_user_url = data["data"]["html_url"];
-        window.location.replace(github_user_url);
+        return data["html_url"];
   		}
-      document.addEventListener('DOMContentLoaded', () => {
+      document.addEventListener('DOMContentLoaded', async () => {
   			if (document.location.hash) {
   				var id = document.location.hash.match(/^#(.*?)$/)[1];
-  				getProfileUrlFor(id);
+          window.location.replace(await getProfileUrlFor(id));
   			}
       });
     </script>
